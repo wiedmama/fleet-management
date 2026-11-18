@@ -41,6 +41,7 @@ Vehicle.Powertrain.FuelSystem.Tank:
 Vehicle.Powertrain.FuelSystem.Tank.First.RelativeLevel:
   datatype: float
   type: sensor
+  unit: percent
   description: |
     The relative level of the first fuel tank, expressed as a percentage of the total capacity.
 # place j1939 mapping info here
@@ -48,6 +49,7 @@ Vehicle.Powertrain.FuelSystem.Tank.First.RelativeLevel:
 Vehicle.Powertrain.FuelSystem.Tank.Second.RelativeLevel:
   datatype: float
   type: sensor
+  unit: percent
   description: |
     The relative level of the second fuel tank, expressed as a percentage of the total capacity.
 # place j1939 mapping info here
@@ -81,4 +83,3 @@ Vehicle.Driver.Identifier.Subject:
   type: attribute
   description: The unique identification of a driver in a Member State.
   default: "DRIVERxxxxxxxxxx"
-

@@ -51,19 +51,19 @@ In the tables below, if the *Impl* column contains `yes` for a property, then
 | rFMS property                   | M/O | rFMS type | rFMS unit | VSS/FMS Overlay path                                              | VSS type | VSS unit | Impl |
 | :------------------------------ | --- | :-------- | :-------- | :---------------------------------------------------------------- | :------- | :------- | ---- |
 | vin                             |  M  | string    |           | VSS: Vehicle.VehicleIdentification.VIN                            | string   |          | yes  |
-| hrTotalVehicleDistance          |  M  | int64     | m         | VSS: Vehicle.TraveledDistance                                     | uint64   | m        | yes  |
+| hrTotalVehicleDistance          |  M  | int64     | m         | VSS: Vehicle.TraveledDistance                                     | uint32   | m        | yes  |
 | totalEngineHours                | M/O | double    | h         | VSS: Vehicle.Powertrain.CombustionEngine.EngineHours              | float    | h        | yes  |
-| totalElectricMotorHours         | M/O | double    | h         | VSS: Vehicle.Powertrain.ElectricMotor.TimeInUse                   | float    | h        | no   |
-| engineTotalFuelUsed             | M/O | int64     | ml        | VSS: Vehicle.Powertrain.FuelSystem.HighResTotalConsumption        | float    | l        | yes  |
-| totalFuelUsedGaseous            | M/O | int64     | kg        |                                                                   |          |          | no   |
+| totalElectricMotorHours         | M/O | double    | h         | VSS: Vehicle.Powertrain.<instance>.ElectricMotor.TimeInUse        | float    | h        | no   |
+| engineTotalFuelUsed             | M/O | int64     | ml        | VSS: Vehicle.Powertrain.FuelSystem.HighResTotalConsumption        | double   | l        | yes  |
+| totalFuelUsedGaseous            | M/O | int64     | kg        | VSS: Vehicle.Powertrain.FuelSystem.TotalConsumptionGaseous        | double   | kg       | no   |
 | totalElectricEnergyUsed         | M/O | int64     | Wh        | VSS: Vehicle.Powertrain.TractionBattery.AccumulatedConsumedEnergy | float    | kWh      | no   |
-| grossCombinationVehicleWeight   |  O  | integer   | kg        | VSS: Vehicle.GrossCombinationVehicleWeight                        | uint16   | kg       | yes  |
-| driver1Id                       |  M  | [DriverIdObject](#driveridobject) | | FMS: Vehicle.Tachograph.Drivers.Driver1.Identification |          |          | yes  |
+| grossCombinationVehicleWeight   |  O  | integer   | kg        | VSS: Vehicle.GrossCombinationVehicleWeight                        | uint32   | kg       | yes  |
+| driver1Id                       |  M  | [DriverIdObject](#driveridobject) | | FMS: Vehicle.Tachograph.Drivers.Driver1.Identification |       |          | yes  |
 | accumulatedData                 |  O  | [AccumulatedDataObject](#accumulateddataobject) | |                                       |          |          | no   |
 | snapshotData                    |  O  | [SnapshotDataObject](#snapshotdataobject) | |                                             |          |          | yes  |
 | uptimeData                      |  O  | [UptimeDataObject](#uptimedataobject) | |                                                 |          |          | no   |
-| status2OfDoors                  | M(B)| string    |           |                                                                   |          |          | no   |
-| doorStatus                      |  O  | array     |           |                                                                   |          |          | no   |
+| status2OfDoors                  | M(B)| string    |           | VSS: Vehicle.Body.BusDoors.IsEnabledAtLeastOne                    | boolean  |          | no   |
+| doorStatus                      |  O  | array     |           | VSS: Vehicle.Body.BusDoors.Door<X>.IsLocked / IsOpen / IsEnabled    | boolean  |          | no   |
 
 # AccumulatedDataObject
 
@@ -80,16 +80,16 @@ TBD
 | gnssPosition                              |  O  | [GNSSPositionObject](#gnsspositionobject) | | VSS/FMS: Vehicle.CurrentLocation            |          |          | yes  |
 | wheelBasedSpeed                           |  O  | double    | km/h      | VSS: Vehicle.Speed                                                | float    | km/h     | yes  |
 | tachographSpeed                           |  O  | double    | km/h      | VSS: Vehicle.Cabin.Tachograph.VehicleSpeed                        | float    | km/h     | yes  |
-| engineSpeed                               |  O  | double    | rpm       | VSS: Vehicle.Powertrain.CombustionEngine.Speed                    | uint16   | rpm      | yes  |
-| electricMotorSpeed                        |  O  | double    | rpm       | VSS: Vehicle.Powertrain.ElectricMotor.Speed                       | int32    | rpm      | no   |
-| fuelType                                  |  O  | string    |           | VSS: Vehicle.Powertrain.FuelSystem.CurrentFuelTypeUsed            | string   | enum     | yes  |
+| engineSpeed                               |  O  | double    | rpm       | VSS: Vehicle.Powertrain.CombustionEngine.Speed                    | float    | rpm      | yes  |
+| electricMotorSpeed                        |  O  | double    | rpm       | VSS: Vehicle.Powertrain.ElectricMotor.*.Speed                   | float    | rpm      | no   |
+| fuelType                                  |  O  | string    |           | VSS: Vehicle.Powertrain.FuelSystem.CurrentFuelTypeUsed            | uint8    | enum     | yes  |
 | fuelLevel1                                |  M  | double    | percent   | FMS: Vehicle.Powertrain.FuelSystem.Tank.First.RelativeLevel       | float    | percent  | yes  |
 | fuelLevel2                                |  O  | double    | percent   | FMS: Vehicle.Powertrain.FuelSystem.Tank.Second.RelativeLevel      | float    | percent  | yes  |
 | catalystFuelLevel                         |  O  | double    | percent   | VSS: Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.Level | uint8    | percent  | yes  |
-| driver1WorkingState                       |  O  | string    | enum      | VSS: Vehicle.Cabin.Tachograph.Drivers.Driver1.WorkingState        | string   | enum     | yes  |
-| driver2Id                                 |  O  | [DriverIdObject](#driveridobject) | | FMS: Vehicle.Tachograph.Drivers.Driver2 |          |          | no   |
-| driver2WorkingState                       |  O  | string    | enum      | VSS: Vehicle.Cabin.Tachograph.Drivers.Driver2.WorkingState        | string   | enum     | yes  |
-| ambientAirTemperature                     |  O  | double    | celsius   | VSS: Vehicle.Exterior.AirTemperature                              | float    | celsius  | yes  |
+| driver1WorkingState                       |  O  | string    | enum      | VSS: Vehicle.Cabin.Tachograph.Drivers.Driver1.WorkingState        | uint8    | enum     | yes  |
+| driver2Id                                 |  O  | [DriverIdObject](#driveridobject) | | FMS: Vehicle.Tachograph.Drivers.Driver2             |          |          | no   |
+| driver2WorkingState                       |  O  | string    | enum      | VSS: Vehicle.Cabin.Tachograph.Drivers.Driver2.WorkingState        | uint8    | enum     | yes  |
+| ambientAirTemperature                     |  O  | double    | celsius   | VSS: Vehicle.Exterior.AirTemperature                              | float    | Celsius  | yes  |
 | parkingBrakeSwitch                        |  O  | boolean   |           | VSS: Vehicle.Chassis.ParkingBrake.IsEngaged                       | boolean  |          | yes  |
 | hybridBatteryPackRemainingCharge          |  O  | double    | percent   | VSS: Vehicle.Powertrain.TractionBattery.StateOfCharge.Current     | float    | percent  | no   |
 | batteryPackChargingStatus                 |  O  | string    | enum      | VSS: Vehicle.Powertrain.TractionBattery.Charging.IsCharging       | boolean  |          | no   |
@@ -115,7 +115,7 @@ TBD
 
 | rFMS property                   | M/O | rFMS type | rFMS unit | VSS/FMS Overlay path                                               | VSS type | VSS unit | Impl |
 | :------------------------------ | --- | :-------- | :-------- | :----------------------------------------------------------------- | :------- | :------- | ---- |
-| tellTaleInfo                    |  M  | [TellTaleObject](#telltaleobject)[] | | FMS: Vehicle.Cabin.Telltale                        |          |          | no   |
+| tellTaleInfo                    |  M  | [TellTaleObject](#telltaleobject)[] | | VSS: Vehicle.HMI.TellTales                         |          |          | no   |
 | serviceDistance                 |  O  | int64     | m         | VSS: Vehicle.Service.DistanceToService                             | float    | km       | no   |
 | engineCoolantTemperature        |  O  | double    | celsius   | VSS: Vehicle.Powertrain.CombustionEngine.EngineCoolant.Temperature | float    | celsius  | no   |
 | hvessOutletCoolantTemperature   |  O  | double    | celsius   | FMS: Vehicle.Powertrain.TractionBattery.CoolantTemperature         | float    | celsius  | no   |
@@ -134,9 +134,9 @@ TBD
 
 | rFMS property  | M/O | rFMS type | rFMS unit | VSS/FMS Overlay path               | VSS type | VSS unit | Impl |
 | :------------- | --- | :-------- | :-------- | :--------------------------------- | :------- | :------- | ---- |
-| tellTale       | M   | string    | enum      | VSS: Vehicle.Cabin.Telltale.*      |          |          | no   |
-| state          | M   | string    | enum      | VSS: Vehicle.Cabin.Telltale.Status | string   | enum     | no   |
-| oemTellTale    | O   | string    |           |                                    | string   |          | no   |
+| tellTale       | M   | string    | enum      | VSS: Vehicle.HMI.TellTales.*       |          |          | no   |
+| state          | M   | string    | enum      | VSS: Vehicle.HMI.TellTales.TellTale<X>.Status | uint8 | enum | no   |
+| oemTellTale    | O   | string    |           |                                    | uint8    | enum     | no   |
 
 # DriverIdObject
 
@@ -149,6 +149,9 @@ TBD
 | driverAuthenticationEquipment   |  O  | FMS: Vehicle.Tachograph.Driver.AuthenticationEquipment | no   |
 | cardReplacementIndex            |  O  | FMS: Vehicle.Tachograph.Driver.CardReplacementIndex    | no   |
 | cardRenewalIndex                |  O  | FMS: Vehicle.Tachograph.Driver.CardRenewalIndex        | no   |
+
+_Remark:_ Values might be parsed from VSS Vehicle.Cabin.Tachograph.Drivers.Driver1/2.Identification
+          if Identification follows structure defined in [COMMISSION REGULATION  No 1360/2002](https://eur-lex.europa.eu/legal-content/EN-SL/TXT/?uri=CELEX:32002R1360), Annex I (g), (i) and (j)
 
 ## DriverIdObject.oemDriverIdentification
 
