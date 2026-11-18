@@ -1,0 +1,213 @@
+Vehicle:
+  type: branch
+  description: Attributes related to a vehicle. 
+
+Vehicle.VehicleIdentification:
+  type: branch
+  description: Attributes that identify a vehicle.
+
+Vehicle.VehicleIdentification.Type:
+  datatype: string
+  type: attribute
+  description: The type of vehicle
+  default: "TRUCK"
+
+Vehicle.VehicleIdentification.Brand:
+  datatype: string
+  type: attribute
+  description: Vehicle brand or manufacturer
+  default: "VOLVO TRUCKS"
+
+Vehicle.VehicleIdentification.DateVehicleFirstRegistered:
+  datatype: string
+  type: attribute
+  description: The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities.
+  unit: iso8601
+
+Vehicle.VehicleIdentification.KnownVehicleDamages:
+  datatype: string
+  type: attribute
+  description: A textual description of known damages, both repaired and unrepaired.
+
+Vehicle.VehicleIdentification.LicensePlate:
+  comment: Depending on the context, this attribute might not be up to date or might be misconfigured, and therefore should be considered untrustworthy in the absence of another method of verification.
+  datatype: string
+  type: attribute
+  description: The license plate of the vehicle.
+
+Vehicle.VehicleIdentification.Model:
+  datatype: string
+  type: attribute
+  description: Vehicle model.
+  default: "FMX"
+
+Vehicle.VehicleIdentification.OptionalExtras:
+  datatype: string[]
+  type: attribute
+  description: Optional extras refers to all car equipment options that are not installed as standard by the manufacturer.
+  comment: Allowed values are not standardized, each OEM can specify detail descriptions of array elements
+
+Vehicle.VehicleIdentification.ProductionDate:
+  datatype: string
+  type: attribute
+  description: The date in ISO 8601 format of production of the item, e.g vehicle.
+  unit: iso8601
+  default: "2024-01-15"
+
+Vehicle.VehicleIdentification.VIN:
+  datatype: string
+  type: attribute
+  description: Vehicle Identification Number
+  default: "YV2E4C3A5VB180691"
+
+Vehicle.VehicleIdentification.VehicleConfiguration:
+  datatype: string
+  type: attribute
+  description: A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.  
+
+Vehicle.VehicleIdentification.VehicleExteriorColor:
+  datatype: string
+  type: attribute
+  description: The main color of the exterior within the basic color palette (eg. red, blue, black, white, ...).  
+
+Vehicle.VehicleIdentification.VehicleInteriorColor:
+  datatype: string
+  type: attribute
+  description: The color or color combination of the interior of the vehicle.
+
+Vehicle.VehicleIdentification.VehicleInteriorType:
+  datatype: string
+  type: attribute
+  description: The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).  
+
+Vehicle.VehicleIdentification.VehicleModelDate:
+  datatype: string
+  type: attribute
+  description: The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model).
+  unit: iso8601
+
+Vehicle.VehicleIdentification.VehicleSeatingCapacity:
+  datatype: uint16
+  type: attribute
+  description: The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
+
+Vehicle.VehicleIdentification.VehicleSpecialUsage:
+  datatype: string
+  type: attribute
+  description: Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.
+
+Vehicle.VehicleIdentification.WMI:
+  datatype: string
+  type: attribute
+  description: 3-character World Manufacturer Identification (WMI) as defined by ISO 3780.
+
+Vehicle.VehicleIdentification.Year:
+  datatype: uint16
+  type: attribute
+  description: Model year of the vehicle. 
+
+Vehicle.Cabin:
+  type: branch
+  description: Attributes related to the cabin of the vehicle.
+
+Vehicle.Cabin.Tachograph:
+  type: branch
+  description: Attributes related to the tachograph of the vehicle.
+
+Vehicle.Cabin.Tachograph.Drivers:
+  type: branch
+  description: Attributes related to the drivers of the vehicle.
+
+Vehicle.Cabin.Tachograph.Drivers.Driver1:
+  type: branch
+  description: Attributes related to the first driver of the vehicle.
+
+Vehicle.Cabin.Tachograph.Drivers.Driver1.IsCardPresent:
+  datatype: boolean
+  type: attribute
+  description: Indicates the presence of a driver card
+  default: true
+
+Vehicle.Cabin.Tachograph.Drivers.Driver1.IsLoggedIn:
+  datatype: boolean
+  type: attribute
+  description: Indicates if the driver is currently logged in.
+  default: true
+
+Vehicle.Cabin.Tachograph.Drivers.Driver1.CardIssuingMemberState:
+  datatype: string
+  type: attribute
+  description: The country alpha code of the Member State having issued the card.
+  default: "DE"
+
+Vehicle.Cabin.Tachograph.Drivers.Driver1.Identification:
+  datatype: string
+  type: attribute
+  description: The unique identification of a driver in a Member State.
+  default: "DRIVER1IDxxxxxxx"
+
+Vehicle.Cabin.Tachograph.Drivers.Driver1.AuthenticationEquipment:
+  datatype: string
+  type: attribute
+  description: Code to distinguish different types of equipment for the tachograph application.
+  default: "DRIVER_CARD"
+
+Vehicle.Cabin.Tachograph.Drivers.Driver1.CardReplacementIndex:
+  datatype: string
+  type: attribute
+  description: The number of times that the driver's card has been replaced.
+  default: "1" 
+
+Vehicle.Cabin.Tachograph.Drivers.Driver1.CardRenewalIndex:
+  datatype: string
+  type: attribute
+  description: The number of times that the driver's card has been renewed.
+  default: "B"
+
+Vehicle.Cabin.Tachograph.Drivers.Driver2.IsCardPresent:
+  datatype: boolean
+  type: attribute
+  description: Indicates the presence of a driver card
+  default: true
+
+Vehicle.Cabin.Tachograph.Drivers.Driver2:
+  type: branch
+  description: Attributes related to the second driver of the vehicle.
+
+Vehicle.Cabin.Tachograph.Drivers.Driver2.IsLoggedIn:
+  datatype: boolean
+  type: attribute
+  description: Indicates if the driver is currently logged in.
+  default: true
+
+Vehicle.Cabin.Tachograph.Drivers.Driver2.CardIssuingMemberState:
+  datatype: string
+  type: attribute
+  description: The country alpha code of the Member State having issued the card.
+  default: "DE"
+
+Vehicle.Cabin.Tachograph.Drivers.Driver2.Identification:
+  datatype: string
+  type: attribute
+  description: The unique identification of a driver in a Member State.
+  default: "DRIVER2IDxxxxxxx"
+
+Vehicle.Cabin.Tachograph.Drivers.Driver2.AuthenticationEquipment:
+  datatype: string
+  type: attribute
+  description: Code to distinguish different types of equipment for the tachograph application.
+  default: "DRIVER_CARD"
+
+Vehicle.Driver:
+  type: branch
+  description: Attributes related to a driver of the vehicle.
+
+Vehicle.Driver.Identifier:
+  type: branch
+  description: Attributes related to the identifier of a driver of the vehicle.
+
+Vehicle.Driver.Identifier.Subject:
+  datatype: string
+  type: attribute
+  description: The unique identification of a driver in a Member State.
+  default: "DRIVERxxxxxxxxxx"

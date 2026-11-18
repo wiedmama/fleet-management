@@ -44,7 +44,7 @@ The *FMS Forwarder* reads the signal values from the Databroker and sends them t
 can be visualized in a web browser by means of a *Grafana* dashboard. Alternatively, the measurements can be
 retrieved by a Fleet Management application via the *FMS Server's* (HTTP based) rFMS API.
 
-Both the FMS Forwarder and Consumer are implemened as uProtocol entities (_uEntity_). This allows the FMS Forwarder to send its data to the Consumer by means of a uProtocol _Notification_. The concrete transport protocol being used to transmit the message on the wire is a matter of configuration and has no impact on the implementation of the business logic itself.
+Both the FMS Forwarder and Consumer are implemented as uProtocol entities (_uEntity_). This allows the FMS Forwarder to send its data to the Consumer by means of a uProtocol _Notification_. The concrete transport protocol being used to transmit the message on the wire is a matter of configuration and has no impact on the implementation of the business logic itself.
 
 # Quick Start
 
@@ -122,6 +122,6 @@ The fleet analysis backend component lives in `components/backend-fleet-analysis
 
 # Contributing
 
-We are looking forward to your ideas and PRs. Each PRs triggers a GitHub action which checks the formating, performs
-linting and runs the test. You can performe similar check in your development environment. For more details check the
+We are looking forward to your ideas and PRs. Each PRs triggers a GitHub action which checks the formatting, performs
+linting and runs the test. You can perform similar check in your development environment. For more details check the
 respective [action](.github/workflows/lint_source_code.yaml) where the checks are listed in the bottom of the file.

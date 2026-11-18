@@ -65,6 +65,17 @@ fn timestamp_from_iso8601_date(iso_date: &str) -> Option<Timestamp> {
     }
 }
 
+fn driver_working_state_to_string(value: u32) -> String {
+    match value {
+        0 => "REST",
+        1 => "DRIVER_AVAILABLE",
+        2 => "WORK",
+        3 => "DRIVE",
+        _ => "UNKNOWN",
+    }
+    .to_string()
+}
+
 pub fn new_vehicle_metadata(data: VssData) -> Result<VehicleMetadata, DatabrokerError> {
     let Some(vin) = data
         .get(vss::VSS_VEHICLE_VEHICLEIDENTIFICATION_VIN)
@@ -298,17 +309,17 @@ pub fn new_vehicle_status(data: VssData) -> Result<VehicleStatus, DatabrokerErro
             .mut_or_insert_default()
             .driver_identification = String::try_from(value).unwrap_or_default();
     }
-    if let Some(value) = data.get(vss::FMS_VEHICLE_TACHOGRAPH_DRIVER1_WORKINGSTATE) {
+    if let Some(TypedValue::Uint32(value)) = data.get(vss::FMS_VEHICLE_TACHOGRAPH_DRIVER1_WORKINGSTATE) {
         vehicle_status
             .snapshot_data
             .mut_or_insert_default()
-            .driver1_working_state = String::try_from(value).ok();
+            .driver1_working_state = Some(driver_working_state_to_string(*value));
     }
-    if let Some(value) = data.get(vss::FMS_VEHICLE_TACHOGRAPH_DRIVER2_WORKINGSTATE) {
+    if let Some(TypedValue::Uint32(value)) = data.get(vss::FMS_VEHICLE_TACHOGRAPH_DRIVER2_WORKINGSTATE) {
         vehicle_status
             .snapshot_data
             .mut_or_insert_default()
-            .driver2_working_state = String::try_from(value).ok();
+            .driver2_working_state = Some(driver_working_state_to_string(*value));
     }
     if let Some(value) = data.get(vss::FMS_VEHICLE_TACHOGRAPH_VEHICLESPEED) {
         vehicle_status

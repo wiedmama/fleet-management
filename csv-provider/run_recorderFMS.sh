@@ -20,12 +20,12 @@
 # SPDX-License-Identifier: Apache-2.0
 
 python3 recorder.py -a "$1" -p "$2" -s \
-Vehicle.Cabin.Telltale.ECT.Status \
-Vehicle.Cabin.Telltale.Engine.Status \
-Vehicle.Cabin.Telltale.EngineOil.Status \
-Vehicle.Cabin.Telltale.FuelLevel.Status \
-Vehicle.Cabin.Telltale.ParkingBrake.Status \
-Vehicle.CurrentOverallWeight \
+Vehicle.HMI.TellTales.TellTale11.Status \
+Vehicle.HMI.TellTales.TellTale18.Status \
+Vehicle.HMI.TellTales.TellTale13.Status \
+Vehicle.HMI.TellTales.TellTale10.Status \
+Vehicle.HMI.TellTales.TellTale7.Status \
+Vehicle.GrossCombinationVehicleWeight \
 Vehicle.Chassis.ParkingBrake.IsEngaged \
 Vehicle.CurrentLocation.Latitude \
 Vehicle.CurrentLocation.Longitude \
@@ -38,19 +38,19 @@ Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.Level \
 Vehicle.Powertrain.CombustionEngine.EngineHours \
 Vehicle.Powertrain.CombustionEngine.IsRunning \
 Vehicle.Powertrain.CombustionEngine.Speed \
-Vehicle.Powertrain.CurrentFuelType \
-Vehicle.Powertrain.FuelSystem.AccumulatedConsumption \
+Vehicle.Powertrain.FuelSystem.CurrentFuelTypeUsed \
+Vehicle.Powertrain.FuelSystem.HighResTotalConsumption \
 Vehicle.Powertrain.FuelSystem.Range \
 Vehicle.Powertrain.FuelSystem.Tank.First.RelativeLevel \
 Vehicle.Powertrain.FuelSystem.Tank.Second.RelativeLevel \
 Vehicle.Powertrain.Range \
 Vehicle.Speed \
 Vehicle.Tachograph.Driver.Driver1.CardIssuingMemberState \
-Vehicle.Tachograph.Driver.Driver1.Identification \
-Vehicle.Tachograph.Driver.Driver1.IsCardPresent \
-Vehicle.Tachograph.Driver.Driver1.WorkingState \
-Vehicle.Tachograph.Driver.Driver2.IsCardPresent \
-Vehicle.Tachograph.Driver.Driver2.WorkingState \
-Vehicle.Tachograph.VehicleSpeed \
-Vehicle.TraveledDistanceHighRes \
+Vehicle.Cabin.Tachograph.Drivers.Driver1.Identification \
+Vehicle.Cabin.Tachograph.Drivers.Driver1.IsCardPresent \
+Vehicle.Cabin.Tachograph.Drivers.Driver1.WorkingState \
+Vehicle.Cabin.Tachograph.Drivers.Driver2.IsCardPresent \
+Vehicle.Cabin.Tachograph.Drivers.Driver2.WorkingState \
+Vehicle.Cabin.Tachograph.VehicleSpeed \
+Vehicle.TraveledDistance \
 Vehicle.VehicleIdentification.VIN

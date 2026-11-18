@@ -17,40 +17,40 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-pub const FMS_VEHICLE_CABIN_TELLTALE_ECT_STATUS: &str = "Vehicle.Cabin.Telltale.ECT.Status";
-pub const FMS_VEHICLE_CABIN_TELLTALE_ENGINE_STATUS: &str = "Vehicle.Cabin.Telltale.Engine.Status";
+pub const FMS_VEHICLE_CABIN_TELLTALE_ECT_STATUS: &str = "Vehicle.HMI.TellTales.TellTale11.Status";
+pub const FMS_VEHICLE_CABIN_TELLTALE_ENGINE_STATUS: &str = "Vehicle.HMI.TellTales.TellTale18.Status";
 pub const FMS_VEHICLE_CABIN_TELLTALE_ENGINEOIL_STATUS: &str =
-    "Vehicle.Cabin.Telltale.EngineOil.Status";
+    "Vehicle.HMI.TellTales.TellTale13.Status";
 pub const FMS_VEHICLE_CABIN_TELLTALE_FUELLEVEL_STATUS: &str =
-    "Vehicle.Cabin.Telltale.FuelLevel.Status";
+    "Vehicle.HMI.TellTales.TellTale10.Status";
 pub const FMS_VEHICLE_CABIN_TELLTALE_PARKINGBRAKE_STATUS: &str =
-    "Vehicle.Cabin.Telltale.ParkingBrake.Status";
+    "Vehicle.HMI.TellTales.TellTale7.Status";
 
 pub const FMS_VEHICLE_CURRENTLOCATION_SPEED: &str = "Vehicle.CurrentLocation.Speed";
 
-pub const FMS_VEHICLE_POWERTRAIN_CURRENTFUELTYPE: &str = "Vehicle.Powertrain.CurrentFuelType";
+pub const FMS_VEHICLE_POWERTRAIN_CURRENTFUELTYPE: &str = "Vehicle.Powertrain.FuelSystem.CurrentFuelTypeUsed";
 pub const FMS_VEHICLE_POWERTRAIN_FUELSYSTEM_ACCUMULATEDCONSUMPTION: &str =
-    "Vehicle.Powertrain.FuelSystem.AccumulatedConsumption";
+    "Vehicle.Powertrain.FuelSystem.HighResTotalConsumption";
 pub const FMS_VEHICLE_POWERTRAIN_FUELSYSTEM_TANK_FIRST_LEVEL: &str =
     "Vehicle.Powertrain.FuelSystem.Tank.First.RelativeLevel";
 pub const FMS_VEHICLE_POWERTRAIN_FUELSYSTEM_TANK_SECOND_LEVEL: &str =
     "Vehicle.Powertrain.FuelSystem.Tank.Second.RelativeLevel";
 
 pub const FMS_VEHICLE_TACHOGRAPH_DRIVER1_CARDISSUINGMEMBERSTATE: &str =
-    "Vehicle.Tachograph.Driver.Driver1.CardIssuingMemberState";
+    "Vehicle.Cabin.Tachograph.Drivers.Driver1.CardIssuingMemberState";
 pub const FMS_VEHICLE_TACHOGRAPH_DRIVER1_IDENTIFICATION: &str =
-    "Vehicle.Tachograph.Driver.Driver1.Identification";
+    "Vehicle.Cabin.Tachograph.Drivers.Driver1.Identification";
 pub const FMS_VEHICLE_TACHOGRAPH_DRIVER1_ISCARDPRESENT: &str =
-    "Vehicle.Tachograph.Driver.Driver1.IsCardPresent";
+    "Vehicle.Cabin.Tachograph.Drivers.Driver1.IsCardPresent";
 pub const FMS_VEHICLE_TACHOGRAPH_DRIVER1_WORKINGSTATE: &str =
-    "Vehicle.Tachograph.Driver.Driver1.WorkingState";
+    "Vehicle.Cabin.Tachograph.Drivers.Driver1.WorkingState";
 pub const FMS_VEHICLE_TACHOGRAPH_DRIVER2_ISCARDPRESENT: &str =
-    "Vehicle.Tachograph.Driver.Driver2.IsCardPresent";
+    "Vehicle.Cabin.Tachograph.Drivers.Driver2.IsCardPresent";
 pub const FMS_VEHICLE_TACHOGRAPH_DRIVER2_WORKINGSTATE: &str =
-    "Vehicle.Tachograph.Driver.Driver2.WorkingState";
-pub const FMS_VEHICLE_TACHOGRAPH_VEHICLESPEED: &str = "Vehicle.Tachograph.VehicleSpeed";
+    "Vehicle.Cabin.Tachograph.Drivers.Driver2.WorkingState";
+pub const FMS_VEHICLE_TACHOGRAPH_VEHICLESPEED: &str = "Vehicle.Cabin.Tachograph.VehicleSpeed";
 
-pub const FMS_VEHICLE_TRAVELED_DISTANCE_HIGH_RES: &str = "Vehicle.TraveledDistanceHighRes";
+pub const FMS_VEHICLE_TRAVELED_DISTANCE_HIGH_RES: &str = "Vehicle.TraveledDistance";
 
 pub const VSS_VEHICLE_BODY_LIGHTS_BRAKE_ISACTIVE: &str = "Vehicle.Body.Lights.Brake.IsActive";
 pub const VSS_VEHICLE_BODY_LIGHTS_DIRECTIONINDICATOR_LEFT_ISSIGNALING: &str =
@@ -67,7 +67,7 @@ pub const VSS_VEHICLE_CURRENTLOCATION_LATITUDE: &str = "Vehicle.CurrentLocation.
 pub const VSS_VEHICLE_CURRENTLOCATION_LONGITUDE: &str = "Vehicle.CurrentLocation.Longitude";
 pub const VSS_VEHICLE_CURRENTLOCATION_TIMESTAMP: &str = "Vehicle.CurrentLocation.Timestamp";
 
-pub const VSS_VEHICLE_CURRENTOVERALLWEIGHT: &str = "Vehicle.CurrentOverallWeight";
+pub const VSS_VEHICLE_CURRENTOVERALLWEIGHT: &str = "Vehicle.GrossCombinationVehicleWeight";
 
 pub const VSS_VEHICLE_DRIVER_IDENTIFIER_SUBJECT: &str = "Vehicle.Driver.Identifier.Subject";
 pub const VSS_VEHICLE_EXTERIOR_AIRTEMPERATURE: &str = "Vehicle.Exterior.AirTemperature";
